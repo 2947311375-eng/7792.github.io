@@ -1,1 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>潘雨程的个人简介</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#home">
+        <img src="img1.jpg" class="navbar-avatar mr-2" alt="我的头像">
+        潘雨程的个人简介
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home" data-page="home">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about" data-page="about">关于我</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#works" data-page="works">作品展示</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#message-board" data-page="message-board">
+              留言板
+              <span class="nav-badge">3</span>
+              <span class="jump-counter" id="navJumpCount">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <div class="container">
+    <!-- 1. 首页 -->
+    <div class="page active" id="home">
+      <div class="row mb-4">
+        <div class="col-lg-3 col-md-4 col-12">
+          <div class="section-block d-flex justify-content-center align-items-center">
+            <img src="img2.jpg" class="home-avatar" alt="潘雨程的个人头像">
+          </div>
+        </div>
+        
+        <div class="col-lg-9 col-md-8 col-12">
+          <div class="section-block">
+            <h5>你好，我是潘雨程</h5>
+            <p>我是一名大数据管理与应用专业大学生，主攻大数据、数据库与软件开发方向，系统学习专业核心课程，扎实掌握数据结构、操作系统、数据库原理等理论知识，注重构建完整知识体系。深耕openGauss数据库与openEuler操作系统，熟悉相关命令实操与问题排查，具备一定软件开发与数据处理能力，能高效完成课程作业与项目开发。学习态度严谨务实，善于钻研技术底层原理，面对问题主动探索解决方案，不断提升专业能力。性格沉稳踏实，责任心强，具备良好的沟通协作能力，能快速融入团队配合完成任务，始终保持对计算机技术的热情，持续深耕专业领域，力求实现个人能力与专业素养的稳步提升。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <!-- 个人档案 -->
+        <div class="col-lg-4 col-md-5 col-12 mb-4">
+          <div class="section-block h-100">
+            <h5 class="text-center mb-3">个人档案</h5>
+            <div class="profile-section">
+              <div class="profile-item">
+                <span class="profile-label">姓名：</span>
+                <span class="profile-value">潘雨程</span>
+              </div>
+              <div class="profile-item">
+                <span class="profile-label">学校：</span>
+                <span class="profile-value">南宁学院</span>
+              </div>
+              <div class="profile-item">
+                <span class="profile-label">专业：</span>
+                <span class="profile-value">大数据管理与应用</span>
+              </div>
+              <div class="profile-item">
+                <span class="profile-label">年级：</span>
+                <span class="profile-value">大二</span>
+              </div>
+              <div class="profile-item">
+                <span class="profile-label">学号：</span>
+                <span class="profile-value">20241091046</span>
+              </div>
+              <div class="profile-item">
+                <span class="profile-label">星座：</span>
+                <span class="profile-value">白羊座</span>
+              </div>
+            </div>
+            
+            <div class="mt-3 pt-3 border-top">
+              <h6 class="text-center mb-2">🏷️ 标签云</h6>
+              <div class="tag-cloud justify-content-center">
+                <span class="tag-item">绘画</span>
+                <span class="tag-item">摄影</span>
+                <span class="tag-item">烘焙</span>
+                <span class="tag-item">阅读</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 我的爱好 -->
+        <div class="col-lg-8 col-md-7 col-12 mb-4">
+          <div class="section-block large h-100">
+            <h5 class="mb-4 pb-2 border-bottom">我的爱好</h5>
+            <div class="row hobby-cards">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                <div class="hobby-card shadow-sm">
+                  <img src="painting.jpg" class="hobby-icon" alt="绘画作品">
+                  <div class="hobby-text">
+                    <h6 class="text-primary">绘画</h6>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                <div class="hobby-card shadow-sm">
+                  <img src="photography.jpg" class="hobby-icon" alt="摄影作品">
+                  <div class="hobby-text">
+                    <h6 class="text-primary">摄影</h6>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                <div class="hobby-card shadow-sm">
+                  <img src="reading.jpg" class="hobby-icon" alt="阅读场景">
+                  <div class="hobby-text">
+                    <h6 class="text-primary">阅读</h6>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+                <div class="hobby-card shadow-sm">
+                  <img src="baking.jpg" class="hobby-icon" alt="烘焙作品">
+                  <div class="hobby-text">
+                    <h6 class="text-primary">烘焙</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="section-block bottom">
+            <p>© 2025 我的作品集 | 导航：<a href="#about" class="page-link">关于我</a> · <a href="#works" class="page-link">作品展示</a> · <a href="#message-board" class="page-link">留言板</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 关于我页 -->
+    <div class="page" id="about">
+      <div class="row mb-4">
+        <div class="col-lg-3 col-md-4 col-12">
+          <div class="section-block">
+            <h5>个人标签</h5>
+            <p>• 细节控</p>
+            <p>• 持续学习</p>
+            <p>• 团队协作</p>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-12">
+          <div class="section-block">
+            <h5>基本信息</h5>
+            <p>姓名：潘雨程</p>
+            <p>职业：大数据管理与应用专业学生</p>
+            <p>邮箱：20241091046@student.nnxy.edu.cn</p>
+            <p>微信：pan_yucheng</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="section-block large">
+            <h5>个人介绍</h5>
+            <p>大家好！我是潘雨程，一名专注于大数据技术的大学生。作为南宁学院大数据管理与应用专业的大二学生，从接触计算机科学开始，便对数据分析和软件开发产生了浓厚的兴趣。</p>
+            <p>在学习中，我注重理论与实践的结合，曾参与openGauss数据库配置、openEuler操作系统部署等项目，负责数据库性能优化和系统配置，最终实现系统稳定运行和性能提升。</p>
+            <p>除了专业学习，我喜欢绘画、摄影和烘焙，这些爱好让我保持创造力和对生活的热情。未来，我希望能深耕大数据技术领域，拓展机器学习能力，与更多优秀的人同行。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="section-block h-100">
+            <h5>技能栈</h5>
+            <p>• 专业技能：openGauss数据库、openEuler系统、Python编程、数据分析</p>
+            <p>• 工具掌握：VSCode、Git、MySQL、Linux命令行</p>
+            <p>• 软技能：团队协作、问题解决、持续学习、沟通能力</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="section-block h-100">
+            <h5>我的经历视频</h5>
+            <div class="video-player-container">
+              <video id="experienceVideo" controls poster="video-poster.jpg">
+                <source src="my_experience.mp4" type="video/mp4">
+                <source src="my_experience.webm" type="video/webm">
+                您的浏览器不支持视频播放，请使用现代浏览器如Chrome、Firefox或Edge。
+              </video>
+              
+              <div class="video-controls mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <button id="playBtn" class="btn btn-sm btn-primary">
+                    <span id="playIcon">▶</span> 播放
+                  </button>
+                  <span id="videoTime">00:00 / 00:00</span>
+                </div>
+                
+                <div class="progress mb-2" style="height: 6px;">
+                  <div id="videoProgress" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+                
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <button id="muteBtn" class="btn btn-sm btn-outline-secondary mr-2">
+                      <span id="volumeIcon">🔊</span>
+                    </button>
+                    <input id="volumeSlider" type="range" min="0" max="100" value="80">
+                  </div>
+                  <button id="fullscreenBtn" class="btn btn-sm btn-outline-secondary">
+                    <span>⛶</span> 全屏
+                  </button>
+                </div>
+              </div>
+              
+              <div class="video-info mt-3">
+                <p class="mb-1"><small>视频时长：12秒</small></p>
+                <p class="mb-0"><small>内容：展示我的学习经历</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="section-block bottom">
+            <p>© 2025 关于我 | 导航：<a href="#home" class="page-link">首页</a> · <a href="#works" class="page-link">作品展示</a> · <a href="#message-board" class="page-link">留言板</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 作品展示页 -->
+<!-- 3. 作品展示页 -->
+<div class="page" id="works">
+  <div class="row mb-4">
+    <div class="col-lg-3 col-md-4 col-12">
+      <div class="section-block">
+        <h5>作品分类</h5>
+        <div class="filter-category">
+          <div class="category-item active" data-category="all">全部作品</div>
+          <div class="category-item" data-category="database">数据库系统</div>
+          <div class="category-item" data-category="data-analysis">数据分析</div>
+          <div class="category-item" data-category="frontend">前端开发</div>
+          <div class="category-item" data-category="mobile">移动应用</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-8 col-12">
+      <div class="section-block">
+        <h5>筛选条件</h5>
+        <div class="filter-buttons">
+          <button class="btn btn-sm btn-outline-secondary filter-btn active" data-filter="all">全部作品</button>
+          <button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="latest">最新发布</button>
+          <button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="popular">热门推荐</button>
+          <div class="dropdown d-inline-block ml-2">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown">
+              按分类筛选 ▼
+            </button>
+            <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+              <a class="dropdown-item category-dropdown-item" href="#" data-category="all">全部作品</a>
+              <a class="dropdown-item category-dropdown-item" href="#" data-category="database">数据库系统</a>
+              <a class="dropdown-item category-dropdown-item" href="#" data-category="data-analysis">数据分析</a>
+              <a class="dropdown-item category-dropdown-item" href="#" data-category="frontend">前端开发</a>
+              <a class="dropdown-item category-dropdown-item" href="#" data-category="mobile">移动应用</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="section-block large">
+        <h5>代表作品：个人作品集网站</h5>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="works-slider" id="worksSlider">
+              <div class="slider-container" id="sliderContainer">
+                <div class="slider-slide">
+                  <img src="work1.jpg" alt="作品截图1">
+                </div>
+                <div class="slider-slide">
+                  <img src="work2.jpg" alt="作品截图2">
+                </div>
+                <div class="slider-slide">
+                  <img src="work3.jpg" alt="作品截图3">
+                </div>
+                <div class="slider-slide">
+                  <img src="work4.jpg" alt="作品截图4">
+                </div>
+              </div>
+              <button class="slider-arrow prev">‹</button>
+              <button class="slider-arrow next">›</button>
+              <div class="slider-nav">
+                <span class="slider-dot active" data-index="0"></span>
+                <span class="slider-dot" data-index="1"></span>
+                <span class="slider-dot" data-index="2"></span>
+                <span class="slider-dot" data-index="3"></span>
+              </div>
+            </div>
+            <p class="text-center mt-2 small text-muted">使用左右箭头或下方圆点切换图片</p>
+          </div>
+          <div class="col-md-6">
+            <p>项目描述：这是一个使用HTML、CSS和JavaScript开发的个人作品集网站。网站采用了响应式设计，适配桌面端、平板端和手机端，并使用了CSS3的transform、transition和animation等高级特性。</p>
+            <p>项目成果：网站展示了我作为大数据专业学生的个人作品和技能，包括openGauss数据库应用、openEuler操作系统配置、以及前端开发等项目。</p>
+            <a href="#" class="btn btn-sm btn-primary">查看详情</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 作品展示区域 -->
+  <div class="works-container">
+    <!-- 作品1：数据库管理系统 -->
+    <div class="row mb-4 work-item" data-category="database" data-date="2024-03-15" data-popularity="95">
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>作品1：数据库管理系统</h5>
+          <div class="work-meta mb-2">
+            <span class="badge badge-primary mr-2">数据库系统</span>
+            <span class="text-muted small"><i class="far fa-calendar-alt mr-1"></i>2024-03-15</span>
+            <span class="text-muted small ml-3"><i class="far fa-eye mr-1"></i>95次浏览</span>
+          </div>
+          <p>截图：<br><img src="work1.jpg" class="img-fluid work-img" alt="作品1截图"></p>
+          <p>描述：基于openGauss的数据库管理系统，支持数据导入导出、查询优化和用户权限管理。实现了高性能的数据库操作界面和可视化数据展示。</p>
+          <a href="#" class="btn btn-sm btn-outline-primary mt-1">查看详情</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>技术亮点</h5>
+          <ul class="tech-list">
+            <li><strong>后端技术：</strong>openGauss数据库、Python Flask框架</li>
+            <li><strong>前端技术：</strong>Vue.js、Element UI组件库</li>
+            <li><strong>核心功能：</strong>SQL查询优化、数据可视化、权限管理</li>
+            <li><strong>项目规模：</strong>5000+行代码，3个月开发周期</li>
+          </ul>
+          <div class="mt-3">
+            <h6>用户评价</h6>
+            <p class="small text-muted">"界面友好，查询速度快，非常适合教学使用" - 李老师</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 作品2：数据分析可视化平台 -->
+    <div class="row mb-4 work-item" data-category="data-analysis" data-date="2024-02-20" data-popularity="120">
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>作品2：数据分析可视化平台</h5>
+          <div class="work-meta mb-2">
+            <span class="badge badge-success mr-2">数据分析</span>
+            <span class="text-muted small"><i class="far fa-calendar-alt mr-1"></i>2024-02-20</span>
+            <span class="text-muted small ml-3"><i class="far fa-eye mr-1"></i>120次浏览</span>
+          </div>
+          <p>截图：<br><img src="work2.jpg" class="img-fluid work-img" alt="作品2截图"></p>
+          <p>描述：使用Python进行数据分析和可视化展示的平台，支持多种数据格式导入，提供丰富的图表类型和数据挖掘功能。</p>
+          <a href="#" class="btn btn-sm btn-outline-primary mt-1">查看详情</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>技术亮点</h5>
+          <ul class="tech-list">
+            <li><strong>分析工具：</strong>Python Pandas、NumPy、Matplotlib</li>
+            <li><strong>可视化库：</strong>ECharts、Plotly</li>
+            <li><strong>数据支持：</strong>CSV、Excel、JSON、数据库连接</li>
+            <li><strong>特色功能：</strong>自动报表生成、趋势预测</li>
+          </ul>
+          <div class="mt-3">
+            <h6>用户评价</h6>
+            <p class="small text-muted">"图表丰富，分析准确，极大提高了工作效率" - 王经理</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 作品3：前端组件库 -->
+    <div class="row mb-4 work-item" data-category="frontend" data-date="2024-01-10" data-popularity="85">
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>作品3：前端组件库</h5>
+          <div class="work-meta mb-2">
+            <span class="badge badge-info mr-2">前端开发</span>
+            <span class="text-muted small"><i class="far fa-calendar-alt mr-1"></i>2024-01-10</span>
+            <span class="text-muted small ml-3"><i class="far fa-eye mr-1"></i>85次浏览</span>
+          </div>
+          <p>截图：<br><img src="work3.jpg" class="img-fluid work-img" alt="作品3截图"></p>
+          <p>描述：基于Vue.js的可复用前端组件库，包含按钮、表单、表格、弹窗等30+个常用组件，支持主题定制和按需加载。</p>
+          <a href="#" class="btn btn-sm btn-outline-primary mt-1">查看详情</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>技术亮点</h5>
+          <ul class="tech-list">
+            <li><strong>框架：</strong>Vue 3.0、TypeScript</li>
+            <li><strong>构建工具：</strong>Vite、Webpack</li>
+            <li><strong>组件数量：</strong>30+个高质量组件</li>
+            <li><strong>特色功能：</strong>主题切换、国际化支持、响应式设计</li>
+          </ul>
+          <div class="mt-3">
+            <h6>用户评价</h6>
+            <p class="small text-muted">"组件设计精美，文档齐全，大幅提升了开发效率" - 张工程师</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 作品4：移动端应用 -->
+    <div class="row mb-4 work-item" data-category="mobile" data-date="2023-12-05" data-popularity="150">
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>作品4：移动端应用</h5>
+          <div class="work-meta mb-2">
+            <span class="badge badge-warning mr-2">移动应用</span>
+            <span class="text-muted small"><i class="far fa-calendar-alt mr-1"></i>2023-12-05</span>
+            <span class="text-muted small ml-3"><i class="far fa-eye mr-1"></i>150次浏览</span>
+          </div>
+          <p>截图：<br><img src="work4.jpg" class="img-fluid work-img" alt="作品4截图"></p>
+          <p>描述：响应式移动端个人管理应用，支持任务管理、日程安排、笔记记录等功能，提供离线使用和云同步能力。</p>
+          <a href="#" class="btn btn-sm btn-outline-primary mt-1">查看详情</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-12">
+        <div class="section-block">
+          <h5>技术亮点</h5>
+          <ul class="tech-list">
+            <li><strong>前端技术：</strong>React Native、Redux</li>
+            <li><strong>后端支持：</strong>Node.js、MongoDB</li>
+            <li><strong>平台支持：</strong>iOS、Android、Web端</li>
+            <li><strong>特色功能：</strong>离线存储、推送通知、数据同步</li>
+          </ul>
+          <div class="mt-3">
+            <h6>用户评价</h6>
+            <p class="small text-muted">"界面流畅，功能实用，是我日常管理的得力助手" - 刘同学</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 无作品提示 -->
+  <div class="no-works-message" style="display: none;">
+    <div class="section-block text-center">
+      <h5>暂无相关作品</h5>
+      <p class="text-muted">当前筛选条件下没有找到相关作品，请尝试其他筛选条件。</p>
+    </div>
+  </div>
+
+  <!-- 作品统计 -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="section-block">
+        <div class="row">
+          <div class="col-md-3 col-6 text-center">
+            <h4 class="text-primary" id="worksCount">4</h4>
+            <p class="small text-muted mb-0">作品总数</p>
+          </div>
+          <div class="col-md-3 col-6 text-center">
+            <h4 class="text-success" id="databaseCount">1</h4>
+            <p class="small text-muted mb-0">数据库作品</p>
+          </div>
+          <div class="col-md-3 col-6 text-center">
+            <h4 class="text-info" id="frontendCount">1</h4>
+            <p class="small text-muted mb-0">前端作品</p>
+          </div>
+          <div class="col-md-3 col-6 text-center">
+            <h4 class="text-warning" id="mobileCount">1</h4>
+            <p class="small text-muted mb-0">移动应用</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="section-block bottom">
+        <p>作品总结：已发布 <span id="totalWorks">4</span> 个作品，涵盖数据库、数据分析、前端开发、移动应用等方向 | 
+           <a href="#" class="text-primary">查看全部作品</a> |
+           导航：<a href="#home" class="page-link">首页</a> · <a href="#about" class="page-link">关于我</a> · <a href="#message-board" class="page-link">留言板</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- 4. 留言板页 -->
+    <div class="page" id="message-board">
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="section-block">
+            <h5 class="text-center">📝 留言板</h5>
+            <p class="text-center text-muted">欢迎留下你的联系信息、想法或图片分享</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-lg-8 col-md-7 col-12 mb-4">
+          <div class="jump-container">
+            <h5 class="text-primary">🌟 欢迎来到留言板！</h5>
+            <p class="mb-2">每次进入这个页面，下面的图片都会为您跳个舞！</p>
+            <img src="img4.jpg" class="jumping-img" id="jumpingImg" alt="留言板欢迎图片">
+            <p class="jump-hint">已跳动 <span id="currentJumpCount">0</span> 次</p>
+            <button class="jump-btn" id="manualJumpBtn">🎉 手动跳动一次</button>
+          </div>
+          
+          <div class="message-board">
+            <h5 class="mb-3">给我留言</h5>
+            <p class="mb-3 small text-muted">如果您有什么想法、建议或想分享图片，欢迎在下方留言。</p>
+            
+            <form id="messageForm">
+              <div class="form-group">
+                <label for="name">我的名字：</label>
+                <input type="text" id="name" class="form-control" placeholder="请输入您的姓名" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">留言内容：</label>
+                <textarea id="message" class="form-control" rows="4" placeholder="请输入您的留言内容..." required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label>上传图片（可选）：</label>
+                <div class="upload-btn" id="uploadTrigger">
+                  📷 点击上传图片
+                </div>
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                <div class="image-preview" id="imagePreview"></div>
+              </div>
+              
+              <div class="form-group">
+                <label for="contact">联系方式（可选）：</label>
+                <input type="text" id="contact" class="form-control" placeholder="邮箱、微信或电话">
+              </div>
+              
+              <div class="text-right">
+                <button type="submit" class="btn-submit">提交留言</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-5 col-12 mb-4">
+          <div class="section-block h-100">
+            <h5 class="mb-3">📋 留言须知</h5>
+            <ul class="pl-3" style="color: #555; font-size: 0.9rem;">
+              <li>不要攻击一只棉花</li>
+              <li>可以分享棉花的喜欢</li>
+              <li>我会及时查看并回复</li>
+            </ul>
+            
+            <div class="mt-4 pt-3 border-top">
+              <h6 class="mb-2">📊 留言统计</h6>
+              <p class="small mb-1">今日留言：<span id="todayCount">0</span> 条</p>
+              <p class="small mb-1">总留言数：<span id="totalCount">3</span> 条</p>
+              <p class="small">带图留言：<span id="imageCount">2</span> 条</p>
+            </div>
+            
+            <div class="mt-4 pt-3 border-top">
+              <h6 class="mb-2">🕒 最近活跃</h6>
+              <p class="small mb-1">2025-04-03 09:00</p>
+              <p class="small mb-1">2025-01-11 14:30</p>
+            </div>
+            
+            <div class="mt-4 pt-3 border-top">
+              <h6 class="mb-2">🎯 图片跳动记录</h6>
+              <p class="small mb-1">总跳动次数：<span id="totalJumps">0</span></p>
+              <p class="small mb-1">今日跳动：<span id="todayJumps">0</span></p>
+              <p class="small">跳动类型：<span id="jumpType">未开始</span></p>
+              <button class="btn btn-sm btn-outline-secondary mt-2 w-100" id="resetJumpBtn">重置跳动计数</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="section-block large">
+            <h5 class="mb-3 pb-2 border-bottom">📨 最新留言</h5>
+            
+            <div class="message-list" id="messageList">
+              <div class="message-item">
+                <div class="message-header">
+                  <div class="message-author">陈同学</div>
+                  <div class="message-time">2025-04-03 09:00</div>
+                </div>
+                <div class="message-content">
+                  留言内容：分享了一首音乐。
+                </div>
+                <div class="image-item">
+                  <img src="music.jpg" alt="音乐">
+                </div>
+                <div class="message-contact">我的邮箱：chen@example.com</div>
+              </div>
+              
+              <div class="message-item">
+                <div class="message-header">
+                  <div class="message-author">李同学</div>
+                  <div class="message-time">2024-01-11 14:30</div>
+                </div>
+                <div class="message-content">
+                  今天天气很好，一起去郊游吧！
+                </div>
+                <div class="image-item">
+                  <img src="outing.png" alt="郊游">
+                </div>
+                <div class="message-contact">联系方式：微信 lililili</div>
+              </div>
+              
+              <div class="message-item">
+                <div class="message-header">
+                  <div class="message-author">刘同学</div>
+                  <div class="message-time">2024-12-10 09:15</div>
+                </div>
+                <div class="message-content">
+                  我正在加班。
+                </div>
+                <div class="image-item">
+                  <img src="working.jpg" alt="工作">
+                </div>
+                <div class="message-contact">邮箱：liuliuliu@school.edu</div>
+              </div>
+            </div>
+            
+            <div class="mt-4 pt-3 border-top">
+              <h5 class="mb-3">🖼️ 留言图片墙</h5>
+              <div class="image-grid">
+                <img src="1.jpg" alt="1">
+                <img src="2.jpg" alt="2">
+                <img src="3.jpg" alt="3">
+                <img src="4.jpg" alt="4">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="section-block bottom">
+            <p>©2025项目 | 个人简介网站 | 
+               已收到 <span id="messageCount">3</span> 条留言 |
+               跳动次数：<span id="footerJumpCount">0</span> 次 |
+               导航：<a href="#home" class="page-link">首页</a> · <a href="#about" class="page-link">关于我</a> · <a href="#works" class="page-link">作品展示</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+  
+</body>
+</html>
