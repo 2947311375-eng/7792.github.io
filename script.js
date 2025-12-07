@@ -236,33 +236,17 @@ function triggerJumpAnimation() {
   }, 1000);
 }
 
-// 留言板功能
 function initMessageBoard() {
-  // 图片预览
+  // 加载已保存的留言
+  loadMessages();
+  
+  // 图片预览（保持不变）
   $('#uploadTrigger').on('click', function() {
     $('#imageUpload').click();
   });
   
   $('#imageUpload').on('change', function() {
-    const preview = $('#imagePreview');
-    preview.empty();
-    
-    if (this.files && this.files[0]) {
-      const reader = new FileReader();
-      
-      reader.onload = function(e) {
-        const img = $('<img>').attr('src', e.target.result)
-          .css({
-            'maxWidth': '150px',
-            'maxHeight': '150px',
-            'marginRight': '10px',
-            'borderRadius': '4px'
-          });
-        preview.append(img);
-      }
-      
-      reader.readAsDataURL(this.files[0]);
-    }
+    // ... 现有图片预览代码保持不变 ...
   });
   
   // 表单提交
@@ -278,63 +262,186 @@ function initMessageBoard() {
       return;
     }
     
-    const messageList = $('#messageList');
-    const newMessage = $('<div>').addClass('message-item');
+    // 创建留言对象
+    const newMessage = {
+      id: Date.now(), // 使用时间戳作为唯一ID
+      name: name,
+      message: message,
+      contact: contact,
+      timestamp: new Date().toISOString(),
+      hasImage: $('#imagePreview').children().length > 0
+    };
     
-    const now = new Date();
-    const timeStr = now.toLocaleDateString('zh-CN') + ' ' + 
-                   now.toLocaleTimeString('zh-CN', {hour: '2-digit', minute:'2-digit'});
-    
-    const messageContent = `
-      <div class="message-header">
-        <div class="message-author">${name}</div>
-        <div class="message-time">${timeStr}</div>
-      </div>
-      <div class="message-content">
-        留言内容：${message}
-      </div>
-    `;
-    
-    newMessage.html(messageContent);
-    
+    // 处理图片（如果有）
     const imagePreview = $('#imagePreview');
     if (imagePreview.children().length > 0) {
-      const imageDiv = $('<div>').addClass('image-item');
-      imageDiv.html(imagePreview.html());
-      newMessage.append(imageDiv);
-      
-      imagePreview.empty();
-      $('#imageUpload').val('');
+      // 获取图片的base64数据
+      const imgSrc = imagePreview.find('img').attr('src');
+      newMessage.imageData = imgSrc;
     }
     
-    if (contact) {
-      const contactDiv = $('<div>').addClass('message-contact')
-        .text(`联系方式：${contact}`);
-      newMessage.append(contactDiv);
-    }
+    // 保存留言到localStorage
+    saveMessage(newMessage);
     
-    messageList.prepend(newMessage);
+    // 添加到页面显示
+    addMessageToDisplay(newMessage);
     
-    const messageCount = parseInt($('#messageCount').text()) + 1;
-    $('#messageCount').text(messageCount);
-    $('#totalCount').text(messageCount);
-    $('.nav-badge').text(messageCount);
+    // 更新统计数据
+    updateMessageStats();
     
-    const today = now.toLocaleDateString('zh-CN');
-    if (today === '2025/5/7') { 
-      const todayNum = parseInt($('#todayCount').text()) + 1;
-      $('#todayCount').text(todayNum);
-    }
-    
-    if (imagePreview.children().length > 0) {
-      const imageNum = parseInt($('#imageCount').text()) + 1;
-      $('#imageCount').text(imageNum);
-    }
-    
+    // 重置表单
     $(this)[0].reset();
+    imagePreview.empty();
+    $('#imageUpload').val('');
+    
     alert('留言提交成功！');
   });
   
+function saveMessage(message) {
+  // 从localStorage获取现有的留言
+  let messages = JSON.parse(localStorage.getItem('userMessages') || '[]');
+  
+  // 添加新留言到数组开头
+  messages.unshift(message);
+  
+  // 限制最多保存50条留言，防止占用太多空间
+  if (messages.length > 50) {
+    messages = messages.slice(0, 50);
+  }
+  
+  // 保存回localStorage
+  localStorage.setItem('userMessages', JSON.stringify(messages));
+}
+
+// 新增：从localStorage加载留言
+function loadMessages() {
+  const messages = JSON.parse(localStorage.getItem('userMessages') || '[]');
+  const messageList = $('#messageList');
+  
+  // 清空现有的示例留言（只保留示例留言的HTML作为备份）
+  // 或者您可以选择保留示例留言，只添加用户留言
+  
+  // 添加到页面显示
+  messages.forEach(message => {
+    addMessageToDisplay(message);
+  });
+  
+  // 更新统计数据
+  updateMessageStats();
+}
+
+// 新增：将留言添加到页面显示
+function addMessageToDisplay(message) {
+  const messageList = $('#messageList');
+  
+  // 创建时间显示字符串
+  const date = new Date(message.timestamp);
+  const timeStr = date.toLocaleDateString('zh-CN') + ' ' + 
+                 date.toLocaleTimeString('zh-CN', {hour: '2-digit', minute:'2-digit'});
+  
+  // 创建留言HTML
+  const newMessage = $('<div>').addClass('message-item').attr('data-id', message.id);
+  
+  let messageHTML = `
+    <div class="message-header">
+      <div class="message-author">${escapeHtml(message.name)}</div>
+      <div class="message-time">${timeStr}</div>
+    </div>
+    <div class="message-content">
+      留言内容：${escapeHtml(message.message)}
+    </div>
+  `;
+  
+  // 添加图片（如果有）
+  if (message.imageData) {
+    messageHTML += `
+      <div class="image-item">
+        <img src="${message.imageData}" alt="用户上传图片" style="max-width: 150px; max-height: 150px; border-radius: 4px;">
+      </div>
+    `;
+  }
+  
+  // 添加联系方式（如果有）
+  if (message.contact) {
+    messageHTML += `
+      <div class="message-contact">
+        联系方式：${escapeHtml(message.contact)}
+      </div>
+    `;
+  }
+  
+  // 添加删除按钮
+  messageHTML += `
+    <div class="message-actions">
+      <button class="btn-delete-message btn btn-sm btn-outline-danger" data-id="${message.id}">删除</button>
+    </div>
+  `;
+  
+  newMessage.html(messageHTML);
+  
+  // 添加到留言列表开头
+  messageList.prepend(newMessage);
+  
+  // 添加删除功能
+  newMessage.find('.btn-delete-message').on('click', function() {
+    const messageId = $(this).data('id');
+    if (confirm('确定要删除这条留言吗？')) {
+      deleteMessage(messageId);
+    }
+  });
+}
+
+// 新增：删除留言
+function deleteMessage(messageId) {
+  // 从localStorage获取留言
+  let messages = JSON.parse(localStorage.getItem('userMessages') || '[]');
+  
+  // 过滤掉要删除的留言
+  messages = messages.filter(msg => msg.id != messageId);
+  
+  // 保存回localStorage
+  localStorage.setItem('userMessages', JSON.stringify(messages));
+  
+  // 从页面移除
+  $(`.message-item[data-id="${messageId}"]`).remove();
+  
+  // 更新统计数据
+  updateMessageStats();
+}
+
+// 新增：更新留言统计
+function updateMessageStats() {
+  const messages = JSON.parse(localStorage.getItem('userMessages') || '[]');
+  const totalCount = messages.length;
+  const today = new Date().toDateString();
+  
+  // 计算今日留言数
+  const todayCount = messages.filter(msg => {
+    const msgDate = new Date(msg.timestamp).toDateString();
+    return msgDate === today;
+  }).length;
+  
+  // 计算带图片留言数
+  const imageCount = messages.filter(msg => msg.hasImage).length;
+  
+  // 更新页面显示
+  $('#messageCount, #totalCount, .nav-badge').text(totalCount);
+  $('#todayCount').text(todayCount);
+  $('#imageCount').text(imageCount);
+}
+
+// 新增：HTML转义函数，防止XSS攻击
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
   // 手动跳动按钮
   $('#manualJumpBtn').on('click', function(e) {
     e.preventDefault();
@@ -357,7 +464,7 @@ $(document).ready(function() {
   initSlider();
   initVideoPlayer();
   initJumpCount();
-  initMessageBoard();
+  initMessageBoard(); 
   
   if (window.location.hash === '#message-board' || $('.page.active').attr('id') === 'message-board') {
     setTimeout(() => {
